@@ -1,0 +1,38 @@
+﻿@model List<EmployeeViewModel>
+
+<div class="container">
+    <div class="row pt-4 pb-3">
+        <div class="col-6">
+            <h2 class="text-primary">Employee List</h2>
+        </div>
+        <div class="col-6 text-end">
+            <a asp-controller="Employee" asp-action="CreateEmployee" class="btn btn-outline-primary">Add Employee</a>
+        </div>
+    </div>
+    <table class="table table-bordered table-striped">
+    <thead>
+    <tr>
+        <th>Employee Name</th>
+        <th>Employee Email</th>
+        <th>Employee Department</th>        
+    </tr>
+    </thead>
+    <tbody>
+            @foreach (var obj in Model)
+            {
+                <tr>
+                    <td>@obj.EmployeeName</td>
+                    <td>@obj.EmployeeEmail</td>
+                    <td>@obj.DepartmentName</td>                    
+                    <td>
+                        <div class="btn-group w-75" role="group">
+                            <a asp-controller="Employee" asp-action="EditEmployee" asp-route-id ="@obj.EmpId" class="btn btn-primary text-center mx-2">Edit</a>
+                            <a asp-controller="Employee" asp-action="DeleteEmployee" asp-route-id="@obj.EmpId"  class="btn btn-danger text-center mx-2">Delete</a>
+                            <a asp-controller="Employee" asp-action="ViewEmployee" asp-route-id="@obj.EmpId" class="btn btn-outline-primary text-center mx-2">View</a>
+                        </div>
+                    </td>
+                </tr>
+            }
+    </tbody>
+</table>
+</div>

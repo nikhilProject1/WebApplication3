@@ -1,0 +1,36 @@
+﻿@model List<Departments>
+
+<div class="container">
+    <div class="row pt-4 pb-3">
+        <div class="col-6">
+            <h2 class="text-primary">Department List</h2>
+        </div>
+        <div class="col-6 text-end">
+            <a asp-controller="Department" asp-action="CreateDepartment" class="btn btn-outline-primary">Add Department</a>
+        </div>
+    </div>
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>Department Name</th>
+                <th>Department Head</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var obj in Model)
+            {
+                <tr>
+                    <td>@obj.DeptName</td>
+                    <td>@obj.Description</td>
+                    <td>
+                        <div class="btn-group w-75" role="group">
+                            <a asp-controller="Department" asp-action="EditDepartment" asp-route-id="@obj.Id" class="btn btn-primary text-center mx-2">Edit</a>
+                            <a asp-controller="Department" asp-action="DeleteDepartment" asp-route-id="@obj.Id" class="btn btn-danger text-center mx-2">Delete</a>
+                            <a asp-controller="Department" asp-action="ViewDepartment" asp-route-id="@obj.Id" class="btn btn-outline-primary text-center mx-2">View</a>
+                        </div>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

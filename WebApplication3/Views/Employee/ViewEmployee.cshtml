@@ -1,0 +1,24 @@
+﻿@model EmployeeViewModel
+
+<div class="container">
+    <form method="post">
+        <input asp-for="EmpId" hidden />
+        <div class="row pb-2">
+            <h2 class="row pb-2">View Employee</h2>
+            <hr />
+        </div>
+        <div class="row">
+            <div class="col-2 pt-2 text-black"><label>Employee Name : </label></div>
+            <div class="col-6 pb-2"><input asp-for="EmployeeName" disabled class="form-control text-black" /></div>
+        </div>
+        <div class="row">
+            <div class="col-2 pt-2 text-black"><label>Employee Department : </label></div>
+            <div class="col-6 pb-2"><input asp-for="DepartmentName" disabled class="form-control text-black" /></div>
+        </div>        
+        <div class="row">
+            <div class="col-2 pt-2 text-black"><label>Employee Email : </label></div>
+            <div class="col-6 pb-2"><input asp-for="EmployeeEmail" disabled class="form-control text-black" /></div>
+        </div>        
+        <a asp-controller="Employee" asp-action="Index" class="btn btn-primary">Back To List</a>
+    </form>
+</div>
